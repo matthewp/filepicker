@@ -1,0 +1,19 @@
+{
+  "name": "filepicker",
+  "repo": "matthewp/filepicker",
+  "description": "A generic FilePicker UI component",
+  "version": "0.0.1",
+  "keywords": [],
+  "dependencies": {
+	"component/classes": "*",
+	"component/domify": "*"
+  },
+  "development": {},
+  "scripts": [
+    "index.js",
+	"template.js"
+  ],
+  "styles": [
+    "filepicker.css"
+  ]
+}

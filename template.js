@@ -1,0 +1,1 @@
+module.exports = '<div class="filepicker">\n  <ul class="filepicker-path"></ul>\n  <ul class="filepicker-files"></ul>\n</div>';

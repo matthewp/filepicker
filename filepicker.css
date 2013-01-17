@@ -5,8 +5,8 @@
   left: 20%;
   right: 20%;
   top: 0%;
-  background-color: black;
-
+  background: white;
+  box-shadow: 0px 5px 50px 5px #888;
   -webkit-transform: translate3d(0,-100%,0);
   -moz-transform: translate3d(0,-100%,0);
   -ms-transform: translate3d(0,-100%,0);
@@ -27,4 +27,13 @@
     -ms-transform: translate3d(0,0%,0);
     -o-transform: translate3d(0,0%,0);
     transform: translate3d(0,0%,0);
+  }
+
+  .filepicker ul {
+    list-style-type: none;
+  }
+
+  .filepicker .filepicker-path li {
+    display: inline-block;
+    margin: 5px 10px;
   }

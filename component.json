@@ -5,15 +5,22 @@
   "version": "0.0.1",
   "keywords": [],
   "dependencies": {
-	"component/classes": "*",
-	"component/domify": "*"
+    "manuelstofer/each": "*",
+    "component/classes": "*",
+    "component/domify": "*",
+    "matthewp/text": "*"
   },
-  "development": {},
+  "development": { 
+  },
   "scripts": [
     "index.js",
 	"template.js"
   ],
   "styles": [
     "filepicker.css"
+  ],
+  "paths": [".."],
+  "local": [
+    "filepicker-dropbox"
   ]
 }

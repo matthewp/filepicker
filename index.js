@@ -1,7 +1,8 @@
 var classes = require('classes'),
     domify = require('domify'),
     each = require('each'),
-    html = require('./template');
+    html = require('./template'),
+    text = require('text');
 
 /*
 ** Prepend an element to the parent.
@@ -30,6 +31,8 @@ function FilePicker() {
   this.engines = [];
 }
 
+Emitter(FilePicker.prototype);
+
 FilePicker.prototype.engine = function (engine) {
   this.engines.push(engine);
   return this;
@@ -40,13 +43,13 @@ FilePicker.prototype.show = function () {
     this.render();
   }
 
-  classes(this.el).add('open');
+  this.classes.add('open');
   this.visible = true;
   return this;
 };
 
 FilePicker.prototype.hide = function () {
-  classes(this.el).remove('open');
+  this.classes.remove('open');
   this.visible = false;
   return this;
 };
@@ -63,14 +66,54 @@ FilePicker.prototype.toggle = function () {
 
 FilePicker.prototype.render = function () {
   this.el = domify(html)[0];
+  this.classes = classes(this.el);
   this.list = this.el.getElementsByClassName('filepicker-files')[0];
   this.crumbs = this.el.getElementsByClassName('filepicker-path')[0];
+  this.sources = this.el.getElementsByClassName('filepicker-sources')[0];
+  this.renderEngines();
 
   prepend(document.body, this.el);
-  classes(this.el).add('trans');
+  this.classes.add('trans');
 };
 
-FilePicker.prototype.setCrumbs = function (path) {
+FilePicker.prototype.load = function(dir, engine) {
+  var self = this;
+  this.renderCrumbs(dir, engine);
+  clear(this.list);
+  engine.fetchDir(dir, function(results) {
+    each(results, function(result) {
+      var li = cEl('li'),
+          anchor = cEl('a');
+
+      anchor.href = '#';
+      anchor.onclick = function(e) { e.preventDefault(); self.itemSelected(result, engine); };
+      text(anchor, result.name);
+
+      li.appendChild(anchor);
+      self.list.appendChild(li);
+    });
+  });
+};
+
+FilePicker.prototype.renderEngines = function() {
+  clear(this.sources);
+
+  var self = this;
+  each(this.engines, function(engine) {
+    var li = cEl('li'),
+        anchor = cEl('a');
+
+    anchor.href = '#';
+    anchor.onclick = function(e) {
+      e.preventDefault();
+      self.load('', engine);
+    };
+    li.appendChild(anchor);
+    self.sources.appendChild(li);
+  });
+};
+
+FilePicker.prototype.renderCrumbs = function (path, engine) {
   clear(this.crumbs);
   var paths = path.split('/');
   var self = this;
@@ -83,7 +126,7 @@ FilePicker.prototype.setCrumbs = function (path) {
       el.href = '#';
       el.onclick = function (e) {
         e.preventDefault();
-        self.load(paths.slice(0, i + 1).join('/'));
+        self.load(paths.slice(0, i + 1).join('/'), engine);
       };
     }
     text(el, p || "/");
@@ -92,8 +135,13 @@ FilePicker.prototype.setCrumbs = function (path) {
   });
 };
 
-FilePicker.setList = function () {
+FilePicker.prototype.itemSelected = function(item, engine) {
+  if(item.type === 'folder') {
+    this.load(item.path, engine);
+    return;
+  }
 
+  this.emit('fileselected', item);
 };
 
 module.exports = FilePicker;

@@ -35,7 +35,7 @@ function FilePicker() {
 Emitter(FilePicker.prototype);
 
 FilePicker.prototype.engine = function (engine) {
-  self = this;
+  var self = this;
   engine.on('progress', function(info) {
     self.emit('progress', info);
   });

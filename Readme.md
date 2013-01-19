@@ -16,18 +16,18 @@
 
 ## Example
   
-    ```javascript
-    var FilePicker = require('filepicker'),
-        DropboxEngine = require('filepicker-dropbox'),
-        filePicker = new FilePicker()
-          .engine(new DropBoxEngine('myapikey'));
+```javascript
+var FilePicker = require('filepicker'),
+    DropboxEngine = require('filepicker-dropbox'),
+    filePicker = new FilePicker()
+      .engine(new DropBoxEngine('myapikey'));
 
-    filePicker.on('fileselected', function(dirEntry) {
-      dirEntry.read(function(arrayBuffer) {
-        // Do something with the data
-      });
-    });
-    ``` 
+filePicker.on('fileselected', function(dirEntry) {
+  dirEntry.read(function(arrayBuffer) {
+    // Do something with the data
+  });
+});
+``` 
 
 ## API
 

@@ -6,11 +6,12 @@
   "keywords": [],
   "dependencies": {
     "manuelstofer/each": "*",
+    "component/emitter": "*",
     "component/classes": "*",
     "component/domify": "*",
     "matthewp/text": "*"
   },
-  "development": { 
+  "development": {
   },
   "scripts": [
     "index.js",

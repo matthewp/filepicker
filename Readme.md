@@ -4,6 +4,8 @@
 
   A generic FilePicker UI component.
 
+  ![filepicker component](http://i.imgur.com/A0CGDto.png)
+
 ## Installation
 
     $ component install matthewp/filepicker

@@ -1,6 +1,7 @@
 var classes = require('classes'),
     domify = require('domify'),
     each = require('each'),
+    Emitter = require('emitter'),
     html = require('./template'),
     text = require('text');
 
@@ -101,13 +102,16 @@ FilePicker.prototype.renderEngines = function() {
   var self = this;
   each(this.engines, function(engine) {
     var li = cEl('li'),
-        anchor = cEl('a');
+        anchor = cEl('a'),
+        span = cEl('span');
 
     anchor.href = '#';
     anchor.onclick = function(e) {
       e.preventDefault();
       self.load('', engine);
     };
+    text(span, engine.name);
+    anchor.appendChild(span);
     li.appendChild(anchor);
     self.sources.appendChild(li);
   });

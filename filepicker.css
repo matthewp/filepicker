@@ -29,11 +29,56 @@
     transform: translate3d(0,0%,0);
   }
 
+  .filepicker, .filepicker * {
+    box-sizing: border-box;
+  }
+
+  .filepicker > * {
+    float: left;
+  }
+
+  .filepicker > div {
+    width: 74%;
+    height: 100%;
+    border-left: 1px solid black;
+  }
+
   .filepicker ul {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
 
   .filepicker .filepicker-path li {
     display: inline-block;
     margin: 5px 10px;
+  }
+
+  .filepicker .filepicker-sources {
+    height: 100%;
+    width: 25%;
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .filepicker .filepicker-sources li {
+    background: #C7C7C7;
+  }
+
+  .filepicker .filepicker-sources li a {
+    width: 100%;
+    height: 100%;
+    padding: 10px;
+  }
+
+  .filepicker .filepicker-files {
+    padding: 10px;
+  }
+
+  .filepicker .filepicker-files li {
+    margin-bottom: 5px;
+  }
+
+  .filepicker .filepicker-files li:hover {
+    background: #C7C7C7;
   }

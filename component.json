@@ -9,10 +9,10 @@
     "component/emitter": "*",
     "component/classes": "*",
     "component/domify": "*",
-    "matthewp/text": "*",
-    "matthewp/filepicker-dropbox": "*"
+    "matthewp/text": "*"
   },
   "development": {
+    "matthewp/filepicker-dropbox": "*"
   },
   "scripts": [
     "index.js",

@@ -1,4 +1,4 @@
-# pre-alpha version DOT NOT USE
+# Alpha version, use cautiously
 
 # filepicker
 
@@ -10,9 +10,44 @@
 
     $ component install matthewp/filepicker
 
+## Example
+
+    var FilePicker = require('filepicker'),
+        DropboxEngine = require('filepicker-dropbox'),
+        filePicker = new FilePicker()
+          .engine(new DropBoxEngine('myapikey'));
+
+    filePicker.on('fileselected', function(dirEntry) {
+      dirEntry.read(function(arrayBuffer) {
+        // Do something with the data
+      });
+    });
+
 ## API
 
-   
+### FilePicker#show()
+
+Show the file picker element.
+
+### FilePicker#hide()
+
+Hide the file picker element.
+
+### FilePicker#toggle()
+
+Toggle showing/hiding the file picker element.
+
+### FilePicker#classes
+
+An instance of the [classes component](https://github.com/component/classes) which will allow you to attach your own css classes to the parent element.
+
+### FilePicker#engine(instance)
+
+Add the engine ``instance`` to the file picker. An engine instance represents a source of data the user can upload from such as Dropbox, Google Drive, SkyDrive, etc.
+
+### FilePicker#on('fileselected', callback)
+
+When the user selects a given file, the ``callback`` will be called with a ``DirectoryEntry`` instance passed as the only parameter.
 
 ## License
 

@@ -2,9 +2,9 @@
 
 # filepicker
 
-  A generic FilePicker UI component.
+  A generic FilePicker UI component. Intentionally minimally styled to allow you to style it to match your app.
 
-  ![filepicker component](http://i.imgur.com/A0CGDto.png)
+  ![filepicker component](http://i.imgur.com/HJmRzM0.png)
 
 ## Installation
 

@@ -4,7 +4,7 @@
 
   A generic FilePicker UI component. Intentionally minimally styled to allow you to style it to match your app.
 
-  ![filepicker component](http://i.imgur.com/HJmRzM0.png)
+  ![filepicker component](http://i.imgur.com/p4RO6vz.png)
 
 ## Installation
 

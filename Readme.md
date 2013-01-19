@@ -2,16 +2,21 @@
 
 # filepicker
 
-  A generic FilePicker UI component. Intentionally minimally styled to allow you to style it to match your app.
+  A generic FilePicker UI [component](https://github.com/component/component). Intentionally minimally styled to allow you to style it to match your app.
 
   ![filepicker component](http://i.imgur.com/p4RO6vz.png)
+
+  Probably you'll also want to include an engine in your component.json. So far there are:
+
+  * [Dropbox](https://github.com/matthewp/filepicker-dropbox)
 
 ## Installation
 
     $ component install matthewp/filepicker
 
 ## Example
-
+  
+    ```javascript
     var FilePicker = require('filepicker'),
         DropboxEngine = require('filepicker-dropbox'),
         filePicker = new FilePicker()
@@ -22,6 +27,7 @@
         // Do something with the data
       });
     });
+    ``` 
 
 ## API
 

@@ -9,7 +9,8 @@
     "component/emitter": "*",
     "component/classes": "*",
     "component/domify": "*",
-    "matthewp/text": "*"
+    "matthewp/text": "*",
+    "matthewp/filepicker-dropbox": "*"
   },
   "development": {
   },
@@ -19,9 +20,5 @@
   ],
   "styles": [
     "filepicker.css"
-  ],
-  "paths": [".."],
-  "local": [
-    "filepicker-dropbox"
   ]
 }

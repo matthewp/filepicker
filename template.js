@@ -1,1 +1,1 @@
-module.exports = '<div class="filepicker">\n  <ul class="filepicker-sources"></ul>\n  <div>\n    <ul class="filepicker-path"></ul>\n    <ul class="filepicker-files"></ul>\n  </div>\n</div>\n';
+module.exports = '<div class="filepicker">\n  <ul class="filepicker-sources"></ul>\n  <div>\n    <ul class="filepicker-path"></ul>\n    <ul class="filepicker-files"></ul>\n  </div>\n  <div class="filepicker-custom"></div>\n</div>\n';

@@ -2,6 +2,7 @@ var classes = require('classes'),
     domify = require('domify'),
     each = require('each'),
     Emitter = require('emitter'),
+    events = require('event'),
     html = require('./template'),
     text = require('text');
 
@@ -50,7 +51,7 @@ FilePicker.prototype.show = function () {
   }
 
   this.classes.add('open');
-  this.visible = true;
+  this.visible = true;`
   return this;
 };
 
@@ -76,16 +77,28 @@ FilePicker.prototype.render = function () {
   this.list = this.el.getElementsByClassName('filepicker-files')[0];
   this.crumbs = this.el.getElementsByClassName('filepicker-path')[0];
   this.sources = this.el.getElementsByClassName('filepicker-sources')[0];
+  this.custom = this.el.getElementsByClassName('filepicker-custom')[0];
   this.renderEngines();
 
   prepend(document.body, this.el);
   this.classes.add('trans');
 };
 
+FilePicker.prototype.cleanup = function() {
+  clear(this.crumbs);
+  clear(this.list);
+  clear(this.custom);
+};
+
 FilePicker.prototype.load = function(dir, engine) {
+  this.cleanup();
+  if(engine.customRendering) {
+    engine.fetchDir(dir, this);
+    return;
+  }
+
   var self = this;
   this.renderCrumbs(dir, engine);
-  clear(this.list);
   engine.fetchDir(dir, function(results) {
     each(results, function(result) {
       var li = cEl('li'),
@@ -123,7 +136,6 @@ FilePicker.prototype.renderEngines = function() {
 };
 
 FilePicker.prototype.renderCrumbs = function (path, engine) {
-  clear(this.crumbs);
   var paths = path.split('/');
   var self = this;
   each(paths, function (p, i) {

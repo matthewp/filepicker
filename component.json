@@ -7,16 +7,18 @@
   "dependencies": {
     "manuelstofer/each": "*",
     "component/emitter": "*",
+    "component/event": "*",
     "component/classes": "*",
     "component/domify": "*",
     "matthewp/text": "*"
   },
   "development": {
-    "matthewp/filepicker-dropbox": "*"
+    "matthewp/filepicker-dropbox": "*",
+    "matthewp/filepicker-mycomputer": "*"
   },
   "scripts": [
     "index.js",
-	"template.js"
+    "template.js"
   ],
   "styles": [
     "filepicker.css"

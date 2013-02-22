@@ -51,7 +51,7 @@ FilePicker.prototype.show = function () {
   }
 
   this.classes.add('open');
-  this.visible = true;`
+  this.visible = true;
   return this;
 };
 
